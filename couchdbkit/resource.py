@@ -110,7 +110,7 @@ class CouchdbResource(Resource):
             resp = Resource.request(self, method, path=path,
                              payload=payload, headers=headers, **params)
 
-        except ResourceError, e:
+        except ResourceError as e:
             msg = getattr(e, 'msg', '')
             if e.response and msg:
                 if e.response.headers.get('content-type') == 'application/json':
